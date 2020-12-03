@@ -1,0 +1,117 @@
+﻿<pu:WindowX x:Class="View.OPCClient.ClientMainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:pu="clr-namespace:Panuon.UI.Silver;assembly=Panuon.UI.Silver"
+        xmlns:local="clr-namespace:Model.OPCClientModel;assembly=Model"
+        mc:Ignorable="d"
+        Title="ClientMainWindow" Height="600" Width="900">
+
+    <Grid Name="Root">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="2*"/>
+        </Grid.ColumnDefinitions>
+        <Grid Grid.Column="0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="2*"/>
+            </Grid.RowDefinitions>
+            <Grid Grid.Row="0">
+                <GroupBox>
+                    <GroupBox.Header>
+                        <Label>OPC Server
+                        </Label>
+                    </GroupBox.Header>
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="*"/>
+                        </Grid.RowDefinitions>
+                        <Grid Grid.Row="0">
+                            <Viewbox>
+                                <Canvas Width="400" Height="100">
+                                    <StackPanel Orientation="Horizontal" Canvas.Top="30" Canvas.Left="20">
+                                        <Button Name="ButtonGet" Content="Get" Height="40" Width="100"  pu:ButtonHelper.CornerRadius="5" pu:ButtonHelper.ClickStyle="Sink" Click="GetNodeClicked"/>
+                                        <ComboBox Name="ComboNode" pu:ComboBoxHelper.Watermark="Server Node" pu:ComboBoxHelper.CornerRadius="6" pu:ComboBoxHelper.HoverBackground="#1E686868" pu:ComboBoxHelper.SelectedBackground="#32686868" Margin="20,0" Height="40" Width="200" SelectionChanged="SelectedToGetServerName" SelectedItem="{Binding SelectedServerNode}"/>
+                                    </StackPanel>
+                                </Canvas>
+                            </Viewbox>
+                        </Grid>
+                        <Grid Grid.Row="1">
+                            <Viewbox>
+                                <Canvas Width="400" Height="100">
+                                    <StackPanel Orientation="Horizontal" Canvas.Top="30" Canvas.Left="20">
+                                        <ComboBox Name="ComboName" pu:ComboBoxHelper.Watermark="Server Name"  pu:ComboBoxHelper.CornerRadius="6" pu:ComboBoxHelper.HoverBackground="#1E686868" pu:ComboBoxHelper.SelectedBackground="#32686868" Height="40" Width="200" SelectedItem="{Binding SelectedServerName}" ItemsSource="{Binding NameList}"/>
+                                        <Button Name="ButtonConnect" Content="Connect" Height="40" Width="100" Margin="20,0" pu:ButtonHelper.CornerRadius="5" pu:ButtonHelper.ClickStyle="Sink" Click="ConnectClicked"/>
+                                    </StackPanel>
+                                </Canvas>
+                            </Viewbox>
+                        </Grid>
+                        <Grid Grid.RowSpan="2">
+                            <pu:Loading Name="NodeLoding" Width="30" Height="30" Foreground="#000000" IsRunning="False"/>
+                        </Grid>
+                    </Grid>
+                </GroupBox>
+            </Grid>
+            <Grid Grid.Row="1">
+                <GroupBox Header="Tag List">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="2*"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <Grid Grid.Column="0">
+                            <DockPanel VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Margin="5,5,5,5">
+                                <!--<TreeView x:Name="DeviceTree" HorizontalAlignment="Stretch" Padding="0">
+                                    <TreeView.ItemTemplate>
+                                        <HierarchicalDataTemplate DataType="{x:Type local:DeviceProperty}" ItemsSource="{Binding Path=Children}">
+                                            <StackPanel Orientation="Horizontal">
+                                                <TextBlock Text="{Binding Channel}"/>
+                                                <StackPanel.ToolTip>
+                                                    <TextBlock Text="{Binding Device}"/>
+                                                </StackPanel.ToolTip>
+                                            </StackPanel>
+                                        </HierarchicalDataTemplate>
+                                    </TreeView.ItemTemplate>
+                                </TreeView>-->
+                                <ListBox Name="DeviceListBox"  SelectedItem="{Binding SelectedTag}">
+                                </ListBox>
+                            </DockPanel>
+                        </Grid>
+                        <Grid Grid.Column="1">
+                            <Viewbox>
+                                <StackPanel Orientation="Vertical" HorizontalAlignment="Stretch" VerticalAlignment="Center" Margin="5,5,5,5">
+                                    <Button Name="ButtonAdd" Content="ADD" Height="32" Width="80" Margin="0,0,0,10" pu:ButtonHelper.CornerRadius="5" pu:ButtonHelper.ClickStyle="Sink" Click="AddTagClicked"/>
+                                    <Button Name="ButtonDelete" Content="DELETE" Height="32" Width="80" Margin="0,0,0,10" pu:ButtonHelper.CornerRadius="5" pu:ButtonHelper.ClickStyle="Sink" Click="DeleteTagClicked"/>
+                                </StackPanel>
+                            </Viewbox>
+                        </Grid>
+                    </Grid>
+                </GroupBox>
+            </Grid>
+        </Grid>
+        <Grid Grid.Column="1">
+            <DockPanel VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Margin="5,5,5,5">
+                <DataGrid Name="GridTag" pu:DataGridHelper.ColumnHorizontalContentAlignment="Center" pu:DataGridHelper.SelectedBackground="#44B5B5B5" pu:DataGridHelper.HoverBackground="#22B5B5B5" CanUserAddRows="False" AutoGenerateColumns="False">
+                    <pu:DataGridHelper.AutoGenerateCheckBoxStyle>
+                        <Style TargetType="CheckBox" BasedOn="{StaticResource {x:Type CheckBox}}">
+                            <Setter Property="pu:CheckBoxHelper.CheckBoxStyle" Value="Switch" />
+                            <Style.Triggers>
+                                <DataTrigger Binding="{Binding Path=(pu:CheckBoxHelper.CheckBoxStyle),RelativeSource={RelativeSource Self}}" Value="Switch">
+                                    <Setter Property="pu:CheckBoxHelper.CheckedBackground" Value="#72C81F" />
+                                </DataTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </pu:DataGridHelper.AutoGenerateCheckBoxStyle>
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="Tag" Binding="{Binding TagName}" Width="2*"/>
+                        <DataGridTextColumn Header="Value" Binding="{Binding Value}" Width="*"/>
+                        <DataGridTextColumn Header="UpdateTime" Binding="{Binding UpdateTime}" Width="1.5*"/>
+                    </DataGrid.Columns>
+                </DataGrid>
+            </DockPanel>
+        </Grid>
+    </Grid>
+</pu:WindowX>
