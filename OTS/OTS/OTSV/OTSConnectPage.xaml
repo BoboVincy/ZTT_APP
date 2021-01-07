@@ -1,0 +1,56 @@
+﻿<UserControl x:Class="OTS.OTSV.OTSConnectPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:UI="clr-namespace:ZdfFlatUI;assembly=WPF.UI"
+      xmlns:local="clr-namespace:OTS.OTSV"
+      mc:Ignorable="d" 
+      d:DesignHeight="400" d:DesignWidth="800">
+    <UserControl.Resources>
+        <Style TargetType="UI:FlatButton">
+            <Setter Property="PressedBackground" Value="White"/>
+            <Setter Property="MouseOverBackground" Value="WhiteSmoke"/>
+            <Setter Property="Background" Value="DarkGray"/>
+            <Setter Property="FontSize" Value="15"/>
+            <Setter Property="Height" Value="30"/>
+        </Style>
+    </UserControl.Resources>
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Grid Grid.Column="0">
+            <Border BorderThickness="0,0,0.75,0" BorderBrush="White">
+            </Border>
+            <DockPanel>
+                <Viewbox>
+                    <Canvas Height="400" Width="400" >
+                        <TextBlock Text="KepServer连接配置" Canvas.Top="60" Canvas.Left="100" FontSize="20" FontWeight="Black"/>
+                        <UI:TitleTextBox Title="IP:" Height="30" FontSize="15" Width="150" CanClearText="True" Text="{Binding OPCServerIP}"  Canvas.Left="60" Canvas.Top="220"/>
+                        <UI:FlatButton Content="连接" FontSize="15" Width="80" Height="30" Canvas.Right="60" Canvas.Top="220" Click="ClickKepServerConnect"/>
+                        <TextBlock Name="KepServerState" FontSize="15" Canvas.Bottom="15" Canvas.Right="15" />
+                    </Canvas>
+                </Viewbox>
+            </DockPanel>
+        </Grid>
+        <Grid Grid.Column="1">
+            <Border BorderThickness="0.75,0,0,0" BorderBrush="White">
+            </Border>
+            <DockPanel>
+                <Viewbox>
+                    <Canvas Height="400" Width="400" >
+                        <TextBlock Text="数据库连接配置" Canvas.Top="60" Canvas.Left="130" FontSize="20" FontWeight="Black"/>
+                        <UI:TitleTextBox Title="IP:" Text="{Binding DataBaseIP}" CanClearText="True" Height="30" FontSize="15" Width="150"  Canvas.Left="60" Canvas.Top="150"/>
+                        <UI:TitleTextBox Title="用户名:" Text="{Binding DataBaseUserName}" CanClearText="True" Height="30" FontSize="15" Width="150"  Canvas.Left="60" Canvas.Top="200"/>
+                        <UI:TitleTextBox Title="密码:" Text="{Binding DataBasePassWord}" CanClearText="True" Height="30" FontSize="15" Width="150"  Canvas.Left="60" Canvas.Top="250"/>
+                        <UI:TitleTextBox Title="数据库名:" Text="{Binding DataBaseName}" CanClearText="True" Height="30" FontSize="15" Width="150"  Canvas.Left="60" Canvas.Top="300"/>
+                        <UI:FlatButton Content="连接" Width="80"  Canvas.Right="60" Canvas.Top="220" Click="ClickDataBaseConnect"/>
+                        <TextBlock Name="DataBaseState" FontSize="15" Canvas.Bottom="15" Canvas.Right="15"/>
+                    </Canvas>
+                </Viewbox>
+            </DockPanel>
+        </Grid>
+    </Grid>
+</UserControl>

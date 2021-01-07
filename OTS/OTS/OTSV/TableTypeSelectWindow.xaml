@@ -1,0 +1,32 @@
+﻿<UI:DazzleWindow x:Class="OTS.OTSV.TableTypeSelectWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:UI="clr-namespace:ZdfFlatUI;assembly=WPF.UI"
+        xmlns:local="clr-namespace:OTS.OTSV"
+        mc:Ignorable="d"
+        Title="PairWindow" Height="130" Width="300">
+    <Grid Background="#FFE1E1E1">
+
+        <DockPanel>
+            <Viewbox>
+                <Canvas Height="100" Width="300">
+                    <UI:DazzleButton Height="15" Width="20" Canvas.Top="-5" Canvas.Right="0" Click="ClickClose">
+                        <UI:DazzleButton.MyMoverBrush>
+                            <ImageBrush ImageSource="/Skin/Button/xm.png"/>
+                        </UI:DazzleButton.MyMoverBrush>
+                        <UI:DazzleButton.MyEnterBrush>
+                            <ImageBrush ImageSource="/Skin/Button/xe.png"/>
+                        </UI:DazzleButton.MyEnterBrush>
+                        <UI:DazzleButton.Background>
+                            <ImageBrush ImageSource="/Skin/Button/xn.png"/>
+                        </UI:DazzleButton.Background>
+                    </UI:DazzleButton>
+                    <UI:ZComboBox Name="TableTypeList" Height="30" Width="150" FontSize="15" Canvas.Left="30" Canvas.Top="30" Watermark="数据表类型" SelectedItem="{Binding SelectTableType}" ItemsSource="{Binding TableTypeList}"/>
+                    <UI:FlatButton Content="确定" Height="30" Width="60" Canvas.Right="25" Canvas.Top="30" Background="DarkGray" PressedBackground="White" Click="ClickTypeSelected"/>
+                </Canvas>
+            </Viewbox>
+        </DockPanel>
+    </Grid>
+    </UI:DazzleWindow>

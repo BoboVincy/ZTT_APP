@@ -1,0 +1,34 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:ZUI="clr-namespace:ZdfFlatUI">
+    <SolidColorBrush x:Key="Brush" Color="#FF6D819A"/>
+    <Style TargetType="ZUI:DazzleWindow">
+        <Setter Property="AllowsTransparency" Value="true"/>
+        <Setter Property="Background" Value="#FFF3F3F3"/>
+        <Setter Property="Foreground" Value="#FF000000"/>
+        <Setter Property="BorderBrush" Value="{StaticResource Brush}"/>
+        <Setter Property="BorderThickness" Value="1"/>
+        <!--<Setter Property="ResizeMode" Value="CanResizeWithGrip"/>-->
+        <Setter Property="WindowStyle" Value="None"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="ZUI:DazzleWindow">
+                    <Grid Margin="5">
+                        <Rectangle Fill="{DynamicResource {x:Static SystemColors.WindowBrushKey}}"    >
+                            <Rectangle.Effect>
+                                <DropShadowEffect BlurRadius="10" ShadowDepth="0"/>
+                            </Rectangle.Effect>
+                        </Rectangle>
+                        <Border Background="{TemplateBinding Background}"    
+                        BorderBrush="{TemplateBinding BorderBrush}"    
+                        BorderThickness="{TemplateBinding BorderThickness}"    
+                        Padding="{TemplateBinding Margin}"    
+                        SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}">
+                            <ContentPresenter />
+                        </Border>
+                    </Grid>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+</ResourceDictionary>

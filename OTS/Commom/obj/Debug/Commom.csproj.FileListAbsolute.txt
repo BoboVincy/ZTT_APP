@@ -1,0 +1,10 @@
+D:\C#Programe\OTS\Commom\bin\Debug\Commom.dll
+D:\C#Programe\OTS\Commom\bin\Debug\Commom.pdb
+D:\C#Programe\OTS\Commom\bin\Debug\log4net.dll
+D:\C#Programe\OTS\Commom\bin\Debug\log4net.xml
+D:\C#Programe\OTS\Commom\obj\Debug\Commom.csproj.CoreCompileInputs.cache
+D:\C#Programe\OTS\Commom\obj\Debug\Commom.csproj.CopyComplete
+D:\C#Programe\OTS\Commom\obj\Debug\Commom.dll
+D:\C#Programe\OTS\Commom\obj\Debug\Commom.pdb
+D:\C#Programe\OTS\Commom\bin\Debug\Log4net\log4net.config
+D:\C#Programe\OTS\Commom\obj\Debug\Commom.csprojAssemblyReference.cache

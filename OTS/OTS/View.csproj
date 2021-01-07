@@ -1,0 +1,224 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{F46E52C7-FF8F-48CE-991A-979455014A35}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>OTS</RootNamespace>
+    <AssemblyName>OPC结转程序</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <WarningLevel>4</WarningLevel>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>favicon.ico</ApplicationIcon>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="log4net, Version=2.0.12.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
+      <HintPath>..\packages\log4net.2.0.12\lib\net45\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xaml">
+      <RequiredTargetFramework>4.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="WindowsBase" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="OTSV\OTSMainPage.xaml.cs">
+      <DependentUpon>OTSMainPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="OTSV\OTSMainWindow.xaml.cs">
+      <DependentUpon>OTSMainWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="OTSV\OTSConnectPage.xaml.cs">
+      <DependentUpon>OTSConnectPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="OTSV\OTSSettingPage.xaml.cs">
+      <DependentUpon>OTSSettingPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="OTSV\OTSSettingPage2.xaml.cs">
+      <DependentUpon>OTSSettingPage2.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="OTSV\PairWindow.xaml.cs">
+      <DependentUpon>PairWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="OTSV\TableTypeSelectWindow.xaml.cs">
+      <DependentUpon>TableTypeSelectWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Page Include="OTSV\OTSMainPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="OTSV\OTSMainWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="OTSV\OTSConnectPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="OTSV\OTSSettingPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="OTSV\OTSSettingPage2.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="OTSV\PairWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="OTSV\TableTypeSelectWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\BLL\BLL.csproj">
+      <Project>{d7cf6f6c-47d5-4c73-aafc-bf5e4e136140}</Project>
+      <Name>BLL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Commom\Commom.csproj">
+      <Project>{4684767b-b931-4748-96df-405e306d5189}</Project>
+      <Name>Commom</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Model\Model.csproj">
+      <Project>{0f56758b-5f26-4278-af59-5a166124285d}</Project>
+      <Name>Model</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ZdfFlatUI\ZdfFlatUI.csproj">
+      <Project>{a5932abc-910b-4a80-ada0-0732ff08d520}</Project>
+      <Name>ZdfFlatUI</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Skin\Bd\Background.jpg" />
+    <Resource Include="Skin\Bd\background_mainwnd.png" />
+    <Resource Include="Skin\Bd\enter.png" />
+    <Resource Include="Skin\Bd\frame.jpg" />
+    <Resource Include="Skin\Bd\mover.png" />
+    <Resource Include="Skin\Bd\pepole.png" />
+    <Resource Include="Skin\Bd\Shadowsocks_0000.ico" />
+    <Resource Include="Skin\Bd\Staff.png" />
+    <Resource Include="Skin\Button\M.png" />
+    <Resource Include="Skin\Button\MAX.png" />
+    <Resource Include="Skin\Button\mie.png" />
+    <Resource Include="Skin\Button\mim.png" />
+    <Resource Include="Skin\Button\min.png" />
+    <Resource Include="Skin\Button\mme.png" />
+    <Resource Include="Skin\Button\mmm.png" />
+    <Resource Include="Skin\Button\mmn.png" />
+    <Resource Include="Skin\Button\MNI.png" />
+    <Resource Include="Skin\Button\mse.png" />
+    <Resource Include="Skin\Button\msm.png" />
+    <Resource Include="Skin\Button\msn.png" />
+    <Resource Include="Skin\Button\mxe.png" />
+    <Resource Include="Skin\Button\mxm.png" />
+    <Resource Include="Skin\Button\mxn.png" />
+    <Resource Include="Skin\Button\ske.png" />
+    <Resource Include="Skin\Button\skm.png" />
+    <Resource Include="Skin\Button\skn.png" />
+    <Resource Include="Skin\Button\x1.png" />
+    <Resource Include="Skin\Button\xe.png" />
+    <Resource Include="Skin\Button\xm.png" />
+    <Resource Include="Skin\Button\xn.png" />
+    <Resource Include="Skin\Icon\Alarm.png" />
+    <Resource Include="Skin\Icon\Alarm_green.png" />
+    <Resource Include="Skin\Icon\Alarm_yellow.png" />
+    <Resource Include="Skin\Icon\ico_dsmain.png" />
+    <Resource Include="Skin\Icon\ico_Examine.png" />
+    <Resource Include="Skin\Icon\ico_softmgr.png" />
+    <Resource Include="Skin\Icon\ico_SpeedupOpt.png" />
+    <Resource Include="Skin\Icon\ico_SysRepair.png" />
+    <Resource Include="Skin\Icon\ico_TraceCleaner.png" />
+    <Resource Include="Skin\Icon\ico_VulRepair.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="OTSV\Config.ini">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Skin\Icon\favicon.ico">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="favicon.ico" />
+    <Content Include="OTSV\SavedConfig.ini">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

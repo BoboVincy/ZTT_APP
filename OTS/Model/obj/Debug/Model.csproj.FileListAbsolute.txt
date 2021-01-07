@@ -1,0 +1,5 @@
+D:\C#Programe\OTS\Model\bin\Debug\Model.dll
+D:\C#Programe\OTS\Model\bin\Debug\Model.pdb
+D:\C#Programe\OTS\Model\obj\Debug\Model.csproj.CoreCompileInputs.cache
+D:\C#Programe\OTS\Model\obj\Debug\Model.dll
+D:\C#Programe\OTS\Model\obj\Debug\Model.pdb

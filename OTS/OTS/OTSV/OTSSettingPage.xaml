@@ -1,0 +1,121 @@
+﻿<UserControl x:Class="OTS.OTSV.OTSSettingPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:OTS.OTSV"
+      xmlns:UI="clr-namespace:ZdfFlatUI;assembly=WPF.UI"
+      mc:Ignorable="d" 
+      d:DesignHeight="400" d:DesignWidth="800">
+    <UserControl.Resources>
+        <Style TargetType="UI:FlatButton">
+            <Setter Property="PressedBackground" Value="White"/>
+            <Setter Property="MouseOverBackground" Value="WhiteSmoke"/>
+            <Setter Property="Background" Value="DarkGray"/>
+            <Setter Property="FontSize" Value="15"/>
+            <Setter Property="Height" Value="30"/>
+        </Style>
+    </UserControl.Resources>
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Grid Grid.Column="1">
+            <DockPanel Margin="2,2,2,2">
+                <Viewbox>
+                    <Canvas Height="600" Width="300">
+                        <TextBlock Text="KepServer配置" FontSize="30" Canvas.Left="50"/>
+                        <UI:ZComboBox Name="KepServerNodeList" Height="30" Width="150" FontSize="15" Canvas.Left="30" Canvas.Top="50" Watermark="服务器名称" ItemsSource="{Binding KepServerNodeList}" SelectedItem="{Binding SelectedServerNode}" SelectionChanged="ClickServerChanged"/>
+                        <UI:ZComboBox Name="ChannelList" Height="30" Width="100" FontSize="15" Canvas.Left="30" Canvas.Top="100" Watermark="频道" ItemsSource="{Binding ChannelList}" SelectedItem="{Binding SelectedChannel}" SelectionChanged="ClickChannelChanged"/>
+                        <UI:ZComboBox Name="DeviceList" Height="30" Width="100" FontSize="15" Canvas.Right="30" Canvas.Top="100" Watermark="设备" ItemsSource="{Binding DeviceList}" SelectedItem="{Binding SelectedDevice}" SelectionChanged="ClickDeviceChanged"/>
+                        <UI:FlatButton Content="读取" Width="60" Canvas.Right="30" Canvas.Top="50" Click="ClickServerRead"/>
+                        <ListBox Name="KepServerTagView" FontSize="15" HorizontalContentAlignment="Left"  Height="450" Width="300" Canvas.Top="150" ItemsSource="{Binding TagNameList}" SelectedItem="{Binding SelectedTag}"/>
+                    </Canvas>
+                </Viewbox>
+            </DockPanel>
+        </Grid>
+        <Grid Grid.Column="3">
+            <DockPanel Margin="2,2,2,2">
+                <Viewbox>
+                    <Canvas Height="600" Width="300">
+                        <TextBlock Text="配对结果" FontSize="30" Canvas.Left="90"/>
+                        <UI:FlatButton Content="保存" Height="40" Width="100" Canvas.Right="100" Canvas.Top="70" Click="ClickSave"/>
+                        <ListBox Name="ShowViewList" HorizontalContentAlignment="Left" FontSize="15" Height="450" Width="300" Canvas.Top="150" ItemsSource="{Binding ShowItemList}" SelectionChanged="ClickSelectedResult" SelectedItem="{Binding SelectedView}"/>
+                    </Canvas>
+                </Viewbox>
+            </DockPanel>
+        </Grid>
+
+        <Grid Grid.Column="2">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="2.5*"/>
+                <RowDefinition Height="0.5*"/>
+            </Grid.RowDefinitions>
+            <Grid Grid.Row="0" >
+                <Border BorderBrush="White"  BorderThickness="1.5,0,1.5,1.5">
+                </Border>
+                <DockPanel Margin="2,2,2,2">
+                    <Viewbox>
+                        <Canvas Height="80" Width="180">
+                            <UI:FlatButton Content="导入" Height="20" Width="40"  Canvas.Right="0" Canvas.Top="0" Click="ClickImport"/>
+                            <UI:FlatButton Content="自动配对" Height="40" Width="100" Canvas.Left="40" Canvas.Top="25" Click="ClickAutoPair"/>
+                        </Canvas>
+                    </Viewbox>
+                </DockPanel>
+            </Grid>
+            <Grid Grid.Row="1">
+                <Border BorderBrush="Gray" BorderThickness="0,1,0,0">
+                </Border>
+                <DockPanel Margin="2,2,2,2">
+                    <Viewbox>
+                        <StackPanel HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Orientation="Vertical">
+                            <GroupBox BorderBrush="Black" BorderThickness="2">
+                                <GroupBox.Header>
+                                    <Label FontSize="10" FontWeight="Black">
+                                        表字段
+                                    </Label>
+                                </GroupBox.Header>
+                                <TextBlock FontSize="10" Text="{Binding ElementName=TableFieldView,Path=SelectedItem}" Margin="0,5,0,2" />
+                            </GroupBox>
+                            <TextBlock FontSize="30" Text="||" Margin="40,5" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            <GroupBox BorderBrush="Black" BorderThickness="2">
+                                <GroupBox.Header>
+                                    <Label FontSize="10" FontWeight="Black">
+                                        点名称
+                                    </Label>
+                                </GroupBox.Header>
+                                <TextBlock FontSize="10" Text="{Binding ElementName=KepServerTagView,Path=SelectedItem}" Margin="0,5,0,2" />
+                            </GroupBox>
+                        </StackPanel>
+                    </Viewbox>
+                </DockPanel>
+            </Grid>
+            <Grid Grid.Row="2">
+                <DockPanel Margin="2,2,2,2">
+                    <Viewbox>
+                        <Canvas Height="50" Width="200">
+                            <UI:FlatButton Content="添加" Height="30" Width="60" FontSize="15" Canvas.Right="30" Canvas.Top="10" Click="ClickAddItem"/>
+                            <UI:FlatButton Content="删除" Height="30" Width="60" FontSize="15" Canvas.Left="30" Canvas.Top="10" Click="ClickDeleteItem"/>
+                        </Canvas>
+                    </Viewbox>
+                </DockPanel>
+            </Grid>
+        </Grid>
+        <Grid Grid.Column="0">
+            <DockPanel Margin="2,2,2,2">
+                <Viewbox>
+                    <Canvas Height="600" Width="300">
+                        <TextBlock Text="数据表配置" FontSize="30" Canvas.Left="70"/>
+                        <UI:ZComboBox Name="DataTableList" Height="30" Width="150" FontSize="15" Canvas.Left="30" Canvas.Top="50" Watermark="数据表名称" ItemsSource="{Binding DataTableList}" SelectedItem="{Binding SelectedTable}" SelectionChanged="ClickTableChanged"/>
+                        <UI:FlatButton Content="读取" Width="60" Canvas.Right="30" Canvas.Top="50" Click="ClickTableRead"/>
+                        <ListBox Name="TableFieldView" FontSize="15" HorizontalContentAlignment="Left"  Height="450" Width="300" Canvas.Top="150" ItemsSource="{Binding FieldNameList}" SelectedItem="{Binding SelectedField}" />
+                    </Canvas>
+                </Viewbox>
+            </DockPanel>
+        </Grid>
+    </Grid>
+</UserControl>
