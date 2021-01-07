@@ -1,0 +1,12 @@
+D:\C#Programe\ZTT_APP\Model\bin\Release\Model.dll
+D:\C#Programe\ZTT_APP\Model\bin\Release\Model.pdb
+D:\C#Programe\ZTT_APP\Model\bin\Release\Common.dll
+D:\C#Programe\ZTT_APP\Model\bin\Release\MQTTnet.dll
+D:\C#Programe\ZTT_APP\Model\bin\Release\Newtonsoft.Json.dll
+D:\C#Programe\ZTT_APP\Model\bin\Release\Common.pdb
+D:\C#Programe\ZTT_APP\Model\bin\Release\Newtonsoft.Json.xml
+D:\C#Programe\ZTT_APP\Model\obj\Release\Model.csprojAssemblyReference.cache
+D:\C#Programe\ZTT_APP\Model\obj\Release\Model.csproj.CoreCompileInputs.cache
+D:\C#Programe\ZTT_APP\Model\obj\Release\Model.csproj.CopyComplete
+D:\C#Programe\ZTT_APP\Model\obj\Release\Model.dll
+D:\C#Programe\ZTT_APP\Model\obj\Release\Model.pdb

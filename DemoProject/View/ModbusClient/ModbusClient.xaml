@@ -1,0 +1,35 @@
+﻿<Window x:Class="View.ModbusClient.ModbusClient"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:View.ModbusClient"
+        mc:Ignorable="d"
+        Title="ModbusClient" Height="300" Width="600">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="2*"/>
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0">
+            <DockPanel>
+                <Viewbox>
+                    <Canvas Height="120" Width="800">
+                        <Button Content="端口设置" Click="ClickPortSetting" Width="60" Height="30" Canvas.Left="10" Canvas.Top="10"/>
+                        <Button Content="Modbus设置" Click="ClickModbusSetting" Width="80" Height="30"  Canvas.Left="80" Canvas.Top="10"/>
+                    </Canvas>
+                </Viewbox>
+            </DockPanel>
+        </Grid>
+        <Grid Grid.Row="1">
+            <DockPanel HorizontalAlignment="Left" Margin="5,5,5,5">
+                <DataGrid Name="GridTag"  CanUserAddRows="False" AutoGenerateColumns="False" ColumnHeaderHeight="25" MaxWidth="300" MaxHeight="400">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="Register" Binding="{Binding Register}" Width="*" />
+                        <DataGridTextColumn Header="Value" Binding="{Binding RegisterValue}" Width="*" />
+                    </DataGrid.Columns>
+                </DataGrid>
+            </DockPanel>
+        </Grid>
+    </Grid>
+</Window>

@@ -1,0 +1,10 @@
+D:\C#Programe\ZTT_APP\ViewWinform\bin\Debug\ViewWinform.exe.config
+D:\C#Programe\ZTT_APP\ViewWinform\bin\Debug\ViewWinform.exe
+D:\C#Programe\ZTT_APP\ViewWinform\bin\Debug\ViewWinform.pdb
+D:\C#Programe\ZTT_APP\ViewWinform\obj\Debug\ViewWinform.csprojAssemblyReference.cache
+D:\C#Programe\ZTT_APP\ViewWinform\obj\Debug\ViewWinform.ModbusClient.ModbusClient.resources
+D:\C#Programe\ZTT_APP\ViewWinform\obj\Debug\ViewWinform.Properties.Resources.resources
+D:\C#Programe\ZTT_APP\ViewWinform\obj\Debug\ViewWinform.csproj.GenerateResource.cache
+D:\C#Programe\ZTT_APP\ViewWinform\obj\Debug\ViewWinform.csproj.CoreCompileInputs.cache
+D:\C#Programe\ZTT_APP\ViewWinform\obj\Debug\ViewWinform.exe
+D:\C#Programe\ZTT_APP\ViewWinform\obj\Debug\ViewWinform.pdb

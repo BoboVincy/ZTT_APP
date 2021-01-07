@@ -1,0 +1,26 @@
+﻿<Window x:Class="View.ModbusClient.ModbusSetting"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:View.ModbusClient"
+        mc:Ignorable="d"
+        Title="ModbusSetting" Height="300" Width="200">
+    <Grid>
+        <DockPanel Name="PanelModbusType">
+            <Viewbox>
+                <Canvas Height="300" Width="200">
+                    <TextBlock FontSize="20" Text="单元号：" Canvas.Top="20" Canvas.Left="10"/>
+                    <TextBlock FontSize="20" Text="寄存器类型：" Canvas.Top="70" Canvas.Left="10"/>
+                    <TextBlock FontSize="20" Text="起始位：" Canvas.Top="120" Canvas.Left="10"/>
+                    <TextBlock FontSize="20" Text="长度：" Canvas.Top="170" Canvas.Left="10"/>
+                    <TextBox Name="BoxDeviceNum" Width="60" Height="20" Canvas.Top="20" Canvas.Right="20" Text="{Binding DeviceNum, Mode=OneWayToSource}"/>
+                    <ComboBox Name="ComboRegister" Width="60" Height="20" Canvas.Top="70" Canvas.Right="20" SelectedItem="{Binding RegisterType, Mode=OneWayToSource}"/>
+                    <TextBox Name="BoxStartBit" Width="60" Height="20" Canvas.Top="120" Canvas.Right="20" Text="{Binding StartBit,Mode=OneWayToSource}"/>
+                    <TextBox Name="BoxLength" Width="60" Height="20" Canvas.Top="170" Canvas.Right="20" Text="{Binding Length, Mode=OneWayToSource}"/>
+                    <Button Name="ButtonModbusSetting" Width="80" Height="30" Canvas.Top="220" Canvas.Right="60" Content="确定" FontSize="20" Click="ClickModbusSetting"/>
+                </Canvas>
+            </Viewbox>
+        </DockPanel>
+    </Grid>
+</Window>
